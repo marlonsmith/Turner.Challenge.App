@@ -8,6 +8,6 @@ namespace Turner.Challenge.App.Repository
 {
     public interface IMoviesRepository
     {
-        Task<Movie[]> GetByTerm(string searchTerm);
+        Task<Movie> GetById(string searchTerm);
     }
 }

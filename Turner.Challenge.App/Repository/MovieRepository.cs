@@ -16,14 +16,14 @@ namespace Turner.Challenge.App.Repository
         {
             _collection = collection;
         }
-        public async Task<Movie[]> GetByTerm(string searchTerm)
+        public async Task<Movie> GetById(string id)
         {
             var documents = await _collection
                 .AsQueryable()
-                .Where(movie => movie.NameSortable.ToLower().Contains(searchTerm))
-                .ToListAsync();
+                .Where(movie => movie.Id.ToString() == id)
+                .SingleOrDefaultAsync();
 
-            return documents.ToArray();
+            return documents;
         }
     }
 }
